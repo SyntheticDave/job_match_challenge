@@ -29,9 +29,9 @@ RUN bundle config --global github.https true && \
 COPY . .
 
 # Add a script to be executed every time the container starts.
-COPY web.sh /usr/bin/
-RUN chmod +x /usr/bin/web.sh
-ENTRYPOINT ["web.sh"]
+COPY app.sh /usr/bin/
+RUN chmod +x /usr/bin/app.sh
+ENTRYPOINT ["app.sh"]
 
 # Expose port 3000 for the API
 EXPOSE 3000

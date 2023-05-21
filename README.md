@@ -19,7 +19,7 @@ Once Docker is installed on your system, you can use the following commands from
 
 ###### Setup database:
 
-`docker compose run --rm web bin/setup`
+`docker compose run --rm app bin/setup`
 
 ###### Run containers in background:
 
@@ -28,11 +28,11 @@ Open `http://localhost:3000/` in your browser.
 
 ###### Bundle install:
 
-`docker compose run --rm web bundle install`
+`docker compose run --rm app bundle install`
 
 ##### Get a Bash Session
 
-`docker compose run --rm web /bin/bash`
+`docker compose run --rm app /bin/bash`
 
 This will spin up a new container and give you a bash session inside that container.
 From here you can get a rails console, run migrations, run specs, etc.
@@ -41,8 +41,5 @@ From here you can get a rails console, run migrations, run specs, etc.
 
 ## TODO
 
-* Provide seed data
-* Provide factories or fixtures for tests
-* Consider whether to provide base views and controllers.
-  * Don't want to waste candidates time on boilerplate, but also don't want to constrain them to a particular approach.
-  * May be that creating views and controllers is the junior version of the challenge?
+* Fix gem installation so we don't have to rebuild
+* Install and configure rspec
