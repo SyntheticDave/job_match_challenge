@@ -60,6 +60,9 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+
+  # Allow rspec for testing
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do

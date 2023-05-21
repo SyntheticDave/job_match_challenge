@@ -1,0 +1,34 @@
+%h1 Coding Challenge: Job Match Recommendation Engine
+%p
+  Your task is to develop a feature for a Job Match web application. The application is a Rails-based system that matches jobseekers to jobs based on their skills. The existing system already has the following models: Jobseeker, Job, and Skill, with Jobseeker and Job having a many-to-many relationship with Skill through join tables.
+
+%p
+  There are simple views in place for listing and showing Jobseekers. You can access these via the
+  = link_to 'Jobseekers Index', jobseekers_path
+
+%p
+  You can use these views as a starting point, or you can replace them with your own views if you prefer.
+
+%h2 Part 1: Jobseeker Matches
+%p
+  Develop a feature that allows a user to view a Jobseeker profile, and see a ranked list of Job they are suitable for. This list should be ranked based on the percentage of skills that match the required skills for each job.
+%p
+  For example, if a job requires skills A, B, and C, and a jobseeker has skills A and B, the match percentage would be 66.67%.
+%p
+  This should be visible on the Jobseeker's Show Page
+%h2 Part 2: Job Matches
+%p
+  Similarly, develop a feature that allows a user to view a Job profile and see a ranked list of suitable Jobseeker candidates. This list should be ranked based on the percentage of required skills that each jobseeker possesses.
+%p
+  This should be visible on the Job's Show Page
+
+
+%h2 Evaluation Criteria
+%p
+  We will evaluate your work based on:
+%ul
+  %li Functionality: Does the feature work as requested?
+  %li Code Quality: Is the code clean, well-organized, and professional? Are there any code smells or redundant code?
+  %li Testing: Have you written tests for the functionality? How thorough are they?
+  %li Performance: How does your solution perform? Have you considered scalability?
+  %li Design: How well is your solution designed? Is it straightforward and easy to understand, or overly complex?

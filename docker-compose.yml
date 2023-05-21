@@ -6,9 +6,17 @@ services:
     volumes:
       # Mounts the app code (".") into the container's "/app" folder:
       - .:/app:delegated
+
+      # Mounts a persistable volume in the installed gems folder, so we can add
+      # gems to the app without having to build the development image again:
+      - app-gems:/usr/local/bundle
       # Mounts a clean tmp folder everytime
       - /app/tmp
       - /tmp
 
     ports:
       - "3000:3000"
+
+volumes:
+  app-gems:
+    driver: local

@@ -17,7 +17,7 @@ Once Docker is installed on your system, you can use the following commands from
 
 `docker compose build`
 
-###### Setup database:
+###### Setup and Seed database:
 
 `docker compose run --rm app bin/setup`
 
@@ -26,20 +26,29 @@ Once Docker is installed on your system, you can use the following commands from
 `docker compose up -d`
 Open `http://localhost:3000/` in your browser.
 
-###### Bundle install:
+###### Bundle Install:
+
+All gems are installed on building the image, but if you need to install a new gem, you can run:
 
 `docker compose run --rm app bundle install`
 
-##### Get a Bash Session
+###### Run Specs
+
+You are welcome to use any test platform, however, Rspec has been installed and configured, and can be run with:
+
+`docker compose run --rm app bundle exec rspec`
+
+For a single file:
+
+`docker compose run --rm app bundle exec rspec filename_spec.rb:line_number`
+
+e.g.
+
+`docker compose run --rm app bundle exec rspec spec/models/jobseeker_spec.rb:10`
+
+###### Get a Bash Session
 
 `docker compose run --rm app /bin/bash`
 
 This will spin up a new container and give you a bash session inside that container.
 From here you can get a rails console, run migrations, run specs, etc.
-
----
-
-## TODO
-
-* Fix gem installation so we don't have to rebuild
-* Install and configure rspec

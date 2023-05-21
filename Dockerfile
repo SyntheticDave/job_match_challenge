@@ -10,6 +10,9 @@ RUN apt-get update && apt-get install -y yarn
 # Set the working directory in the container to /app
 WORKDIR /app
 
+ENV BUNDLER_VERSION='2.4.13'
+RUN gem install bundler -v ${BUNDLER_VERSION}
+
 # Add Gemfile and Gemfile.lock to the /app directory in the docker container
 COPY Gemfile Gemfile.lock ./
 
