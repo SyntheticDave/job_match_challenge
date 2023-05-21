@@ -1,0 +1,12 @@
+%h1 Jobseekers
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Skills
+  %tbody
+    - @jobseekers.each do |jobseeker|
+      %tr
+        %td= link_to jobseeker.name, jobseeker_path(jobseeker)
+        %td= jobseeker.skills.map(&:name).join(", ")

@@ -1,0 +1,7 @@
+%h1= @jobseeker.name
+
+%h2 Skills
+
+%ul
+  - @jobseeker.skills.each do |skill|
+    %li= skill.name
