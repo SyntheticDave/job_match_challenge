@@ -5,3 +5,11 @@
 %ul
   - @jobseeker.skills.each do |skill|
     %li= skill.name
+
+%h2 Matching jobs
+%ul
+  - @jobseeker.matching_jobs.each do |job, percentage|
+    %li
+      %a= job.title
+      (Match: #{percentage}%)
+

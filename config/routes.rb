@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :jobseekers, only: [:index, :show]
+  resources :jobs, only: [:index, :show]
 end

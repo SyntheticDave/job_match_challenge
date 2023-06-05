@@ -1,0 +1,6 @@
+%h2 Matching Jobseekers
+%ul
+  - @job.matching_jobseekers.each do |jobseeker, percentage|
+    %li
+      %a= jobseeker.name
+      (Match: #{percentage}%)
