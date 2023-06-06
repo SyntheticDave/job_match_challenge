@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_142158) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_012220) do
   create_table "jobs", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
@@ -37,10 +37,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_142158) do
     t.index ["skill_id"], name: "index_jobseekers_skills_on_skill_id"
   end
 
+  create_table "matching_percentages", force: :cascade do |t|
+    t.integer "job_id", null: false
+    t.integer "jobseeker_id", null: false
+    t.float "percentage", default: 0.0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id", "jobseeker_id"], name: "index_matching_percentages_on_job_id_and_jobseeker_id", unique: true
+    t.index ["job_id"], name: "index_matching_percentages_on_job_id"
+    t.index ["jobseeker_id"], name: "index_matching_percentages_on_jobseeker_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "matching_percentages", "jobs"
+  add_foreign_key "matching_percentages", "jobseekers"
 end

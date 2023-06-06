@@ -1,0 +1,14 @@
+%h1= @job.title
+%h2 Job required skills
+%ul
+  - @job.skills.each do |skill|
+    %li
+      %a= skill.name
+
+%h2 Matching Jobseekers
+
+%ul
+  - @job.matching_jobseekers.each do |jobseeker, percentage|
+    %li
+      %a= link_to jobseeker.name, jobseeker_path(jobseeker)
+      (Match: #{percentage}%)
