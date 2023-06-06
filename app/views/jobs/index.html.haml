@@ -10,3 +10,6 @@
       %tr
         %td= link_to job.title, job_path(job)
         %td= job.skills.map(&:name).join(", ")
+        %td= link_to 'Edit', edit_job_path(job)
+
+= link_to 'Add New Job', new_job_path

@@ -15,10 +15,28 @@ services:
       # Mounts a clean tmp folder everytime
       - /app/tmp
       - /tmp
-      
+    depends_on:
+      - redis
 
     ports:
       - "3000:3000"
+    environment:
+      - REDIS_URL_SIDEKIQ=redis://redis:6379/1
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq -q default
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL_SIDEKIQ=redis://redis:6379/1
 
 volumes:
   app-gems:

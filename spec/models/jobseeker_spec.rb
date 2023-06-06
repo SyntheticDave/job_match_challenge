@@ -10,6 +10,10 @@ RSpec.describe Jobseeker, type: :model do
     it { is_expected.to eq(js_name) }
   end
 
+  describe 'associations' do
+    it { should have_and_belong_to_many(:skills) }
+  end
+
   describe '#matching_jobs' do
     let!(:jobseeker) { create(:jobseeker, :with_skills, skills_count: 3) }
     let!(:skills) { create_list(:skill, 3) }

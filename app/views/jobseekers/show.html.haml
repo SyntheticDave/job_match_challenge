@@ -10,6 +10,6 @@
 %ul
   - @jobseeker.matching_jobs.each do |job, percentage|
     %li
-      %a= job.title
+      %a= link_to job.title, job_path(job)
       (Match: #{percentage}%)
 

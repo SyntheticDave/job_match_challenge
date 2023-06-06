@@ -1,0 +1,9 @@
+= form_for @job do |f|
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :skills
+    = f.collection_check_boxes :skill_ids, @skills, :id, :name
+  .actions
+    = f.submit
